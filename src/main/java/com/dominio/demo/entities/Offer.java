@@ -1,6 +1,8 @@
 package com.dominio.demo.entities;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
@@ -9,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -26,6 +29,9 @@ public class Offer {
 	@ManyToOne
 	@JoinColumn(name = "course_id")
 	private Course course;
+	
+	@OneToMany(mappedBy = "offer")
+	private List<Resource> resources = new ArrayList<>();
 	
 	public Offer() {
 	}
