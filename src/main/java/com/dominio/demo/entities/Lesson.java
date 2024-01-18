@@ -10,6 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
@@ -19,6 +21,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_lesson")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Lesson {
 	
 	@Id
@@ -44,6 +47,9 @@ public class Lesson {
 	)
 	private Set<Enrollment> enrollmentsDone = new HashSet<>();
 	
+	
+	@OneToMany(mappedBy = "lesson")
+	private List<Topic> topics = new ArrayList<>();
 	
 	public Lesson() {
 	}

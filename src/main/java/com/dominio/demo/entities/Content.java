@@ -7,6 +7,7 @@ import jakarta.persistence.Table;
 @Table(name = "tb_content")
 public class Content extends Lesson {
 	
+
 	private String textContent;
 	private String videoUri;
 	
@@ -34,7 +35,4 @@ public class Content extends Lesson {
 	public void setVideoUri(String videoUri) {
 		this.videoUri = videoUri;
 	}
-
-	
-	
 }

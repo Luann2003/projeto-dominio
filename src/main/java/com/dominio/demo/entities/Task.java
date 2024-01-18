@@ -70,5 +70,4 @@ public class Task extends Lesson {
 	public void setDueDate(Instant dueDate) {
 		this.dueDate = dueDate;
 	}
-
 }
